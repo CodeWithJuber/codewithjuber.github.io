@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Hikmah mark">
+  <rect x="52" y="52" width="152" height="152" fill="none" stroke="#171512" stroke-width="2.5"/>
+  <rect x="52" y="52" width="152" height="152" fill="none" stroke="#171512" stroke-width="2.5" transform="rotate(45 128 128)"/>
+  <path d="M128 88 L168 128 L128 168 L88 128 Z" fill="#D9480F"/>
+</svg>
