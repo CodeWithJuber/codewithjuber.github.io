@@ -1,2 +1,3 @@
-# codewithjuber.github.io
-CodeWithJuber — personal site. Hosts Hikmah Design OS under /hikmah-design-os/
+# Juber Shaikh
+
+Dependency free portfolio for Juber Shaikh. Hikmah Design OS remains available under `/hikmah-design-os/`.

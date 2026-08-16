@@ -1,0 +1,16 @@
+{
+  "name": "Juber Shaikh",
+  "short_name": "Juber Shaikh",
+  "description": "Senior Full Stack and AI Application Engineer in Dubai.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#edf2f4",
+  "theme_color": "#10283a",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
