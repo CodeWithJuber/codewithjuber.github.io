@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#10283a" />
+    <meta name="theme-color" content="#f7faff" />
     <meta name="color-scheme" content="light" />
     <meta
       name="description"
@@ -32,6 +32,12 @@
     <link rel="canonical" href="https://codewithjuber.github.io/" />
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <title>Juber Shaikh | Full Stack and AI Application Engineer</title>
     <script type="application/ld+json">
@@ -58,225 +64,227 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" data-header>
-      <a class="identity" href="#top" aria-label="Juber Shaikh home">
-        <span class="identity-mark" aria-hidden="true">JS</span>
-        <span>Juber Shaikh</span>
-      </a>
+      <div class="header-shell">
+        <span class="crosshair" aria-hidden="true"><span></span></span>
+        <a class="identity" href="#top" aria-label="Juber Shaikh home">Juber Shaikh</a>
 
-      <button
-        class="menu-button"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-navigation"
-        aria-label="Open navigation"
-        data-menu-button
-      >
-        <span></span>
-        <span></span>
-      </button>
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+          aria-label="Open navigation"
+          data-menu-button
+        >
+          <span class="menu-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Menu</span>
+        </button>
 
-      <nav id="site-navigation" class="site-navigation" aria-label="Primary navigation" data-navigation>
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#evidence">Evidence</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav id="site-navigation" class="site-navigation" aria-label="Primary navigation" data-navigation>
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#writing">Writing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
     <main id="main">
-      <section id="top" class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <h1 id="hero-title">I build enterprise systems that can act with judgment.</h1>
-          <p>
-            Senior Full Stack and AI Application Engineer in Dubai. Eleven plus years across aviation,
-            financial technology, healthcare, cloud native platforms, and open source agent systems.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#work">View selected work</a>
-            <a class="button button-secondary" href="https://github.com/CodeWithJuber">GitHub</a>
-            <a class="button button-secondary" href="./assets/resume/Juber_Shaikh_Public_Resume.pdf" download>
-              Download resume
-            </a>
+      <section id="top" class="route-section hero-section" aria-labelledby="hero-title">
+        <div class="route-rail" aria-hidden="true"><span class="route-node route-node-large"></span></div>
+        <div class="route-content hero-layout">
+          <div class="hero-copy">
+            <div class="flight-stamp" aria-label="Flight recorder, evidence first">
+              <span>Flight recorder</span>
+              <span>JS · FR · 2026</span>
+              <span>Evidence first</span>
+            </div>
+            <h1 id="hero-title">I build enterprise systems that can act with judgment.</h1>
+            <p>
+              Senior Full Stack and AI Application Engineer in Dubai. Eleven plus years across aviation,
+              financial technology, healthcare, cloud native platforms, and open source agent systems.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#work">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14h14M9 15l6-6M10 9h5v5" /></svg>
+                View selected work
+              </a>
+              <a class="button button-secondary" href="https://github.com/CodeWithJuber">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.2-4-2-5-2.5M14.5 22v-3.1c0-.9.1-1.4-.4-2 3.2-.4 6.5-1.6 6.5-7A5.5 5.5 0 0 0 19.1 6c.1-.4.7-1.8-.1-3.6 0 0-1.2-.4-3.8 1.4a13 13 0 0 0-6.8 0C5.8 2 4.6 2.4 4.6 2.4 3.8 4.2 4.4 5.6 4.5 6A5.5 5.5 0 0 0 3 9.9c0 5.4 3.3 6.6 6.5 7-.5.6-.5 1.2-.4 2V22" /></svg>
+                GitHub
+              </a>
+            </div>
+            <div class="technology-line">
+              <span>Technology</span>
+              <p>Java <b>·</b> Spring <b>·</b> Node <b>·</b> Python <b>·</b> Rust <b>·</b> AWS</p>
+            </div>
+          </div>
+
+          <div class="trace-panel" data-trace-panel>
+            <div class="instrument-header">
+              <span><b aria-hidden="true">◉</b> Trace instrument</span>
+              <time aria-label="Trace timer">00:00:00</time>
+            </div>
+            <ol class="trace-list">
+              <li class="trace-step" data-trace-step>
+                <span class="trace-number">01</span>
+                <span class="trace-copy"><strong>Input</strong><small>Real world signals, intent, events, and context.</small></span>
+                <span class="trace-status">Ready</span>
+              </li>
+              <li class="trace-step trace-step-decision" data-trace-step>
+                <span class="trace-number">02</span>
+                <span class="trace-copy"><strong>Decision</strong><small>Reasoning, policies, and tools shape the responsible action.</small></span>
+                <span class="trace-status">Waiting</span>
+              </li>
+              <li class="trace-step" data-trace-step>
+                <span class="trace-number">03</span>
+                <span class="trace-copy"><strong>Action</strong><small>Systems execute with safety, observability, and idempotency.</small></span>
+                <span class="trace-status">Waiting</span>
+              </li>
+              <li class="trace-step" data-trace-step>
+                <span class="trace-number">04</span>
+                <span class="trace-copy"><strong>Verification</strong><small>Outcomes are checked and evidence is recorded.</small></span>
+                <span class="trace-status">Waiting</span>
+              </li>
+            </ol>
+            <div class="instrument-controls">
+              <span class="record-dot" aria-hidden="true"></span>
+              <span class="control-time" aria-hidden="true">00:00:00</span>
+              <button class="trace-button" type="button" aria-pressed="false" data-trace-button>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z" /></svg>
+                <span>Run the trace</span>
+              </button>
+              <span class="trace-live" aria-live="polite" data-trace-live>Ready</span>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="trace-panel" data-trace-panel>
-          <button class="trace-button" type="button" aria-pressed="false" data-trace-button>
-            <span>Run the trace</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 12h13M14 7l5 5l-5 5" />
-            </svg>
-          </button>
-          <ol class="trace-list">
-            <li class="trace-step" data-trace-step>
-              <span class="trace-label">INPUT</span>
-              <span>Enterprise context</span>
-            </li>
-            <li class="trace-step" data-trace-step>
-              <span class="trace-label">DECISION</span>
-              <span>Choose the smallest responsible action</span>
-            </li>
-            <li class="trace-step" data-trace-step>
-              <span class="trace-label">ACTION</span>
-              <span>Execute through governed connectors</span>
-            </li>
-            <li class="trace-step" data-trace-step>
-              <span class="trace-label">VERIFICATION</span>
-              <span>Record evidence and confirm the outcome</span>
-            </li>
-          </ol>
+      <section id="work" class="route-section work-section" aria-labelledby="work-title">
+        <div class="route-rail" aria-hidden="true"><span class="route-node"></span></div>
+        <div class="route-content section-content">
+          <div class="section-heading">
+            <div><span>// 01</span><h2 id="work-title">Selected work</h2></div>
+            <p>Systems that ship. Evidence you can trace from input to verification.</p>
+          </div>
+
+          <div class="project-list">
+            <article class="project-row">
+              <div class="project-index"><strong>01</strong><span>Recorded system</span></div>
+              <div class="project-copy"><h3>ForgeKit</h3><p>Public beta toolkit for shared agent memory, change impact analysis, and pre action guardrails.</p></div>
+              <p class="project-facts">Shared memory<br />Impact analysis<br />Guardrails</p>
+              <a class="text-link" href="https://github.com/CodeWithJuber/forgekit">View code <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="project-row">
+              <div class="project-index"><strong>02</strong><span>Recorded system</span></div>
+              <div class="project-copy"><h3>Connector Hub</h3><p>Rust connector catalogue with explicit confirmations, SSRF controls, and a hash chained audit ledger.</p></div>
+              <p class="project-facts">Rust<br />Confirmations<br />Audit ledger</p>
+              <a class="text-link" href="https://github.com/CodeWithJuber/connector-hub">View code <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="project-row">
+              <div class="project-index"><strong>03</strong><span>Recorded system</span></div>
+              <div class="project-copy"><h3>Mizan</h3><p>Experimental Python and FastAPI system with WebSocket APIs, agent orchestration, and Docker workflows.</p></div>
+              <p class="project-facts">Python<br />FastAPI<br />WebSocket</p>
+              <a class="text-link" href="https://github.com/CodeWithJuber/mizan">View code <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="project-row">
+              <div class="project-index"><strong>04</strong><span>Recorded system</span></div>
+              <div class="project-copy"><h3>Hikmah Stack</h3><p>Model independent agent capability system for provenance, contradictions, commitments, and verification state.</p></div>
+              <p class="project-facts">Rust<br />Provenance<br />Verification</p>
+              <a class="text-link" href="https://github.com/CodeWithJuber/hikmah-stack">View code <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="work" class="section work-section" aria-labelledby="work-title">
-        <h2 id="work-title">Work</h2>
-        <div class="project-grid">
-          <a class="project project-wide" href="https://github.com/CodeWithJuber/forgekit">
-            <h3>ForgeKit</h3>
-            <p>
-              Public beta toolkit for shared agent memory, heuristic change impact analysis, and pre action
-              guardrails across AI coding tools.
-            </p>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 19L19 5M9 5h10v10" />
-            </svg>
-          </a>
+      <section id="experience" class="route-section experience-section" aria-labelledby="experience-title">
+        <div class="route-rail route-rail-orange" aria-hidden="true"><span class="route-node"></span></div>
+        <div class="route-content section-content">
+          <details class="experience-details" data-experience-details open>
+            <summary class="section-heading experience-summary">
+              <div><span>// 02</span><h2 id="experience-title">Experience</h2></div>
+              <p>Across domains. At scale. With engineering depth.</p>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4 8 8-8 8" /></svg>
+            </summary>
 
-          <a class="project" href="https://github.com/CodeWithJuber/connector-hub">
-            <h3>Connector Hub</h3>
-            <p>
-              Rust connector catalogue with explicit confirmation states, SSRF controls, and a hash chained
-              audit ledger. The public repository documents 24 providers and 301 operations.
-            </p>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 19L19 5M9 5h10v10" />
-            </svg>
-          </a>
-
-          <a class="project" href="https://github.com/CodeWithJuber/mizan">
-            <h3>Mizan</h3>
-            <p>
-              Experimental Python and FastAPI system with WebSocket APIs, agent orchestration, and Docker
-              workflows.
-            </p>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 19L19 5M9 5h10v10" />
-            </svg>
-          </a>
-
-          <a class="project project-wide" href="https://github.com/CodeWithJuber/hikmah-stack">
-            <h3>Hikmah Stack</h3>
-            <p>
-              Model independent agent capability system with a Rust cognitive kernel for provenance,
-              contradictions, commitments, and verification state.
-            </p>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 19L19 5M9 5h10v10" />
-            </svg>
-          </a>
+            <div class="experience-list">
+              <article class="experience-item">
+                <div class="experience-copy"><time>2023 to present</time><h3>Tata Consultancy Services</h3><p>Enterprise APIs, microservices, authentication, profile, tier, and points workflows.</p></div>
+                <div class="domain-ledger"><strong>Aviation</strong><p>Java · Spring Boot · Node · React · Next.js · Angular · PostgreSQL · AWS</p></div>
+              </article>
+              <article class="experience-item">
+                <div class="experience-copy"><time>2023</time><h3>SavvyMoney</h3><p>Secure loan data ingestion and processing.</p></div>
+                <div class="domain-ledger"><strong>Financial technology</strong><p>Java 17 · Spring Boot · AWS · Kong · OAuth</p></div>
+              </article>
+              <article class="experience-item">
+                <div class="experience-copy"><time>2021 to 2023</time><h3>eNoah, Altais Health</h3><p>Services, web applications, architecture support, code quality, and mentoring.</p></div>
+                <div class="domain-ledger"><strong>Healthcare</strong><p>Java · Spring · Angular · React · Kafka · Redis · PostgreSQL</p></div>
+              </article>
+              <article class="experience-item">
+                <div class="experience-copy"><time>2014 to 2021</time><h3>Earlier engineering and technical leadership</h3><p>Work across ExtremLogic, Nityo Infotech, VS2H, and Nucsoft.</p></div>
+                <div class="domain-ledger"><strong>Cloud native systems</strong><p>Java · Spring · Microservices · DevOps · AWS · Docker</p></div>
+              </article>
+              <article class="experience-item experience-founder">
+                <div class="experience-copy"><time>2017 to present</time><h3>Hostlelo, part time founder</h3><p>Hosting and cloud infrastructure operations alongside full time engineering work.</p></div>
+                <div class="domain-ledger"><strong>Founder track</strong><p>Linux · Nginx · AWS · Automation · Monitoring · Operations</p></div>
+              </article>
+            </div>
+          </details>
         </div>
       </section>
 
-      <section id="experience" class="section experience-section" aria-labelledby="experience-title">
-        <h2 id="experience-title">Experience</h2>
-        <div class="experience-list">
-          <article class="experience-item">
-            <div>
-              <h3>TCS</h3>
-              <time>December 2023 to present</time>
+      <section id="evidence" class="route-section evidence-section" aria-labelledby="evidence-title">
+        <div class="route-rail" aria-hidden="true"><span class="route-node"></span></div>
+        <div class="route-content section-content">
+          <div class="section-heading compact-heading"><div><span>// 03</span><h2 id="evidence-title">Evidence</h2></div><p>Verified written recognition.</p></div>
+          <div class="evidence-panel">
+            <div class="evidence-toolbar"><span>◉ Trace playback</span><span>Evidence verified</span></div>
+            <div class="evidence-event"><span class="verified-node" aria-hidden="true"></span><time>2026</time><strong>Verified</strong><p>Shukran client team recognition for consistent delivery, technical capability, and collaboration.</p></div>
+            <div class="evidence-event"><span class="verified-node" aria-hidden="true"></span><time>2025</time><strong>Verified</strong><p>Cross team appreciation for ownership, technical contribution, collaboration, and delivery quality.</p></div>
+            <div class="quote-grid">
+              <figure><blockquote>“Strong technical contributions, which are a huge asset, but also for his amazing attitude and team spirit.”</blockquote><figcaption>Ahmed Akram, written feedback</figcaption></figure>
+              <figure><blockquote>“Your effort is making a real difference in our code quality and project success.”</blockquote><figcaption>Rekha Kishore, written feedback</figcaption></figure>
             </div>
-            <p>
-              Enterprise APIs and microservices. Authentication, profile, tier, and points. Production
-              readiness, code review, and mentoring.
-            </p>
-          </article>
+          </div>
+        </div>
+      </section>
 
-          <article class="experience-item">
+      <section id="writing" class="route-section writing-section" aria-labelledby="writing-title">
+        <div class="route-rail" aria-hidden="true"><span class="route-node"></span></div>
+        <div class="route-content section-content writing-layout">
+          <div class="section-heading compact-heading"><div><span>// 04</span><h2 id="writing-title">Writing</h2></div><p>Recent public thought.</p></div>
+          <article class="writing-card">
             <div>
-              <h3>SavvyMoney</h3>
-              <time>Contract, February 2023 to December 2023</time>
+              <h3>Can machines act independently without losing balance with the whole?</h3>
+              <p>A reflection on agentic AI, distributed sensing, feedback, adaptation, and responsible autonomy.</p>
+              <a class="button button-primary" href="https://www.linkedin.com/feed/update/urn:li:activity:7494684550183161856/">Read on LinkedIn <span aria-hidden="true">↗</span></a>
             </div>
-            <p>Secure loan ingestion with Java 17, Spring, and AWS.</p>
-          </article>
-
-          <article class="experience-item">
-            <div>
-              <h3>eNoah</h3>
-              <time>September 2021 to February 2023</time>
-            </div>
-            <p>Java, Spring, Angular, React, Kafka, Redis, and PostgreSQL.</p>
-          </article>
-
-          <article class="experience-item">
-            <div>
-              <h3>Earlier leadership</h3>
-            </div>
-            <p>Java and integrations.</p>
-          </article>
-
-          <article class="experience-item">
-            <div>
-              <h3>Hostlelo</h3>
-              <time>Founder, part time, March 2017 to present</time>
-            </div>
-            <p>Hosting and cloud operations.</p>
+            <svg class="document-icon" viewBox="0 0 64 80" aria-hidden="true"><path d="M10 2h30l14 14v62H10zM40 2v16h14M20 34h24M20 46h24M20 58h18" /></svg>
           </article>
         </div>
       </section>
 
-      <section id="evidence" class="section evidence-section" aria-labelledby="evidence-title">
-        <h2 id="evidence-title">Evidence</h2>
-        <div class="evidence-grid">
-          <article class="years-evidence">
-            <strong>11+</strong>
-            <span>years</span>
-          </article>
-
-          <article class="recognition recognition-one">
-            <time>March 2026</time>
-            <h3>Client team Shukran</h3>
-            <p>Consistent delivery, technical capability, and collaboration.</p>
-          </article>
-
-          <article class="recognition recognition-two">
-            <time>July 2025</time>
-            <h3>Cross team appreciation</h3>
-            <p>Ownership, technical contribution, collaboration, and delivery quality.</p>
-          </article>
-
-          <figure class="quote quote-one">
-            <blockquote>“Strong technical contributions, which are a huge asset, but also for his amazing attitude and team spirit.”</blockquote>
-            <figcaption>Ahmed Akram, written feedback</figcaption>
-          </figure>
-
-          <figure class="quote quote-two">
-            <blockquote>“Your effort is making a real difference in our code quality and project success.”</blockquote>
-            <figcaption>Rekha Kishore, written feedback</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section id="writing" class="section writing-section" aria-labelledby="writing-title">
-        <h2 id="writing-title">Writing</h2>
-        <a class="writing-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7494684550183161856/">
-          <span>
-            <strong>Nature was already agentic</strong>
-            <span>A reflection on sensing, feedback, adaptation, balance, and the way intelligent systems act.</span>
-          </span>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 19L19 5M9 5h10v10" />
-          </svg>
-        </a>
-      </section>
-
-      <section id="contact" class="contact-section" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact</h2>
-        <p>Build systems that can be trusted when they act.</p>
-        <div class="contact-links">
-          <a href="mailto:zubairnuc@gmail.com">zubairnuc@gmail.com</a>
-          <a href="https://www.linkedin.com/in/jubershaikh">LinkedIn</a>
-          <a href="https://github.com/CodeWithJuber">GitHub</a>
+      <section id="contact" class="route-section contact-section" aria-labelledby="contact-title">
+        <div class="route-rail" aria-hidden="true"><span class="route-node route-node-large"></span></div>
+        <div class="route-content section-content">
+          <div class="contact-head">
+            <div><span>// Contact</span><h2 id="contact-title">Build systems that can be trusted when they act.</h2></div>
+            <p>Dubai<br />United Arab Emirates</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-secondary" href="mailto:zubairnuc@gmail.com">Email Juber</a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/jubershaikh">LinkedIn</a>
+            <a class="button button-secondary" href="https://github.com/CodeWithJuber">GitHub</a>
+            <a class="button button-secondary" href="./assets/resume/Juber_Shaikh_Public_Resume.pdf" download>Download profile</a>
+          </div>
+          <footer class="site-footer">
+            <div><strong>Juber Shaikh</strong><span>Flight recorder for intelligent systems</span></div>
+            <div class="footer-stamp"><span>Flight recorder</span><span>JS · FR · 2026</span><span>Evidence first</span></div>
+            <p>Built with code, guided by principles.<br />Thank you for reviewing the log.</p>
+          </footer>
         </div>
       </section>
     </main>
