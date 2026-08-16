@@ -169,6 +169,18 @@
           </div>
 
           <div class="project-list">
+            <svg class="work-flight-path" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <marker id="landing-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                  <path d="M0 0L8 4L0 8" fill="none" stroke="currentColor" stroke-width="1.5" />
+                </marker>
+              </defs>
+              <path class="flight-path-main" d="M0 4H420Q450 4 450 34V224Q450 250 476 250H974Q996 250 996 272V474Q996 500 970 500H566Q540 500 540 526V724Q540 750 566 750H970Q996 750 996 776V952Q996 982 966 982H884V996" marker-end="url(#landing-arrow)" />
+              <path class="flight-path-signal" d="M996 272V474Q996 500 970 500H790" />
+              <circle class="flight-node" cx="450" cy="250" r="7" />
+              <circle class="flight-node flight-node-signal" cx="996" cy="500" r="7" />
+              <circle class="flight-node" cx="540" cy="750" r="7" />
+            </svg>
             <article class="project-row">
               <div class="project-index"><strong>01</strong><span>Recorded system</span></div>
               <div class="project-copy"><h3>ForgeKit</h3><p>Public beta toolkit for shared agent memory, change impact analysis, and pre action guardrails.</p></div>
