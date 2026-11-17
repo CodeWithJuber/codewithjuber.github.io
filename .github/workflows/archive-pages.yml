@@ -1,6 +1,8 @@
 name: Archive published Pages package
 
 on:
+  push:
+    branches: [main]
   workflow_run:
     workflows: ["pages build and deployment"]
     types: [completed]
@@ -13,12 +15,17 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: archive-pages-${{ github.event.workflow_run.head_sha || inputs.source_run || github.sha }}
+  cancel-in-progress: false
+
 jobs:
   archive:
     if: >-
       github.ref_name == github.event.repository.default_branch &&
-      (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success')
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     permissions:
       contents: read
       actions: write
@@ -38,8 +45,32 @@ jobs:
           SOURCE_RUN: ${{ github.event.workflow_run.id || inputs.source_run }}
         run: |
           set -euo pipefail
-          [[ "$SOURCE_RUN" =~ ^[0-9]+$ ]]
           api="repos/$GITHUB_REPOSITORY/actions"
+          if [[ "$GITHUB_EVENT_NAME" == push ]]; then
+            # GitHub-managed Pages builds can complete without emitting workflow_run.
+            # Match the deployment to this push and wait until Pages has consumed the package.
+            for ((poll = 1; poll <= 180; poll++)); do
+              source=$(gh api "$api/runs?head_sha=$GITHUB_SHA&per_page=100" |
+                jq -c --arg sha "$GITHUB_SHA" '[.workflow_runs[] |
+                  select(.head_sha == $sha and .path == "dynamic/pages/pages-build-deployment" and
+                         .event == "dynamic")] | max_by(.id)')
+              if [[ "$source" == null ]]; then
+                if ((poll >= 18)); then
+                  echo "No native Pages deployment was created for this commit." >> "$GITHUB_STEP_SUMMARY"
+                  exit 0
+                fi
+              elif [[ "$(jq -r .status <<< "$source")" == completed ]]; then
+                if [[ "$(jq -r .conclusion <<< "$source")" != success ]]; then
+                  echo "Pages did not publish this commit. Its package has been preserved." >> "$GITHUB_STEP_SUMMARY"
+                  exit 0
+                fi
+                SOURCE_RUN=$(jq -er .id <<< "$source")
+                break
+              fi
+              sleep 10
+            done
+          fi
+          [[ "$SOURCE_RUN" =~ ^[0-9]+$ ]]
           gh api "$api/runs/$SOURCE_RUN" | jq -e --arg run "$SOURCE_RUN" --arg repo "$GITHUB_REPOSITORY_ID" '
             (.id | tostring) == $run and (.repository.id | tostring) == $repo and
             (.head_repository.id | tostring) == $repo and
