@@ -1,0 +1,66 @@
+name: Archive published Pages package
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: ID of a completed GitHub-managed Pages deployment
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  archive:
+    if: >-
+      github.ref_name == github.event.repository.default_branch &&
+      (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+      id-token: write
+    steps:
+      - name: Check out the pinned compute archive client
+        uses: actions/checkout@v7
+        with:
+          repository: CodeWithJuber/forgekit
+          ref: 3837d3a6a1a811eb7d012a47a3933fd213aa009e
+          sparse-checkout: scripts/ci
+          persist-credentials: false
+
+      - name: Copy and verify the deployed package before removing its GitHub copy
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN: ${{ github.event.workflow_run.id || inputs.source_run }}
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_RUN" =~ ^[0-9]+$ ]]
+          api="repos/$GITHUB_REPOSITORY/actions"
+          gh api "$api/runs/$SOURCE_RUN" | jq -e --arg run "$SOURCE_RUN" --arg repo "$GITHUB_REPOSITORY_ID" '
+            (.id | tostring) == $run and (.repository.id | tostring) == $repo and
+            (.head_repository.id | tostring) == $repo and
+            .path == "dynamic/pages/pages-build-deployment" and .event == "dynamic" and
+            .status == "completed" and .conclusion == "success"
+          ' > /dev/null
+
+          packages=$(gh api --paginate --slurp "$api/runs/$SOURCE_RUN/artifacts?per_page=100" |
+            jq -c --arg run "$SOURCE_RUN" '[.[].artifacts[] |
+              select(.name == "github-pages" and .expired == false and (.workflow_run.id | tostring) == $run)]')
+          count=$(jq length <<< "$packages")
+          if [[ "$count" == 0 ]]; then
+            echo "No retained Pages package for deployed run $SOURCE_RUN." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          [[ "$count" == 1 ]]
+          id=$(jq -er '.[0].id | tostring | select(test("^[0-9]+$"))' <<< "$packages")
+          digest=$(jq -er '.[0].digest | select(test("^sha256:[a-f0-9]{64}$"))' <<< "$packages")
+          file="$RUNNER_TEMP/github-pages.zip"
+          gh api "$api/artifacts/$id/zip" > "$file"
+          printf '%s  %s\n' "${digest#sha256:}" "$file" | sha256sum --check --status
+          bash scripts/ci/put-artifact.sh pages site "$file"
+          gh api --method DELETE "$api/artifacts/$id"
+          printf 'Archived Pages run %s, GitHub artifact %s.\n' "$SOURCE_RUN" "$id" >> "$GITHUB_STEP_SUMMARY"
